@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yashoda | Cybersecurity Portfolio</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #05070b;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND PARTICLES
+        ========================= */
+
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03), transparent 30%),
+                #05070b;
+        }
+
+        .particle {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0.7;
+            box-shadow: 0 0 8px rgba(255,255,255,0.8);
+            animation: floatParticle linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes floatParticle {
+
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-20vh) translateX(80px);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(5, 7, 11, 0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .logo span {
+            color: #9ca3af;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #cfd3d8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(255,255,255,0.6);
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 100px 8%;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #9ca3af;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .small-text {
+            color: #aeb4bd;
+            font-size: 15px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 85px);
+            line-height: 1;
+            margin-bottom: 20px;
+
+            background: linear-gradient(
+                120deg,
+                #ffffff,
+                #9ca3af,
+                #ffffff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 30px);
+            font-weight: normal;
+            color: #d1d5db;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: #9ca3af;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #05070b;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(255,255,255,0.35);
+        }
+
+        .btn-secondary {
+            border: 1px solid #555;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-container {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-container p {
+            color: #b7bdc6;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .highlight {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 28px;
+            text-align: center;
+
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 14px;
+
+            transition: 0.35s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.06);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            position: relative;
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.07),
+                    rgba(255,255,255,0.025)
+                );
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 16px;
+
+            transition: 0.4s;
+
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            background: rgba(255,255,255,0.04);
+
+            border-radius: 50%;
+
+            top: -90px;
+            right: -90px;
+
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+        }
+
+        .project-card:hover::before {
+            transform: scale(1.5);
+        }
+
+        .project-number {
+            color: #8b929c;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .project-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #aeb4bd;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-btn {
+            display: inline-block;
+
+            padding: 10px 15px;
+
+            border: 1px solid #555;
+            border-radius: 7px;
+
+            text-decoration: none;
+            color: white;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .project-btn:hover {
+            background: white;
+            color: #05070b;
+            border-color: white;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-box {
+            max-width: 800px;
+            margin: auto;
+
+            padding: 35px;
+
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .education-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .education-box p {
+            color: #aeb4bd;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-container p {
+            color: #9ca3af;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+
+            border: 1px solid #555;
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #05070b;
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 8%;
+
+            text-align: center;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.8s;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .project-card {
+                padding: 24px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         MOVING BACKGROUND
+    ========================== -->
+
+    <div id="particles"></div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+            Yashoda<span>.</span>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content reveal">
+
+            <div class="small-text">
+                Cybersecurity • Cloud • Technology
+            </div>
+
+            <h1>
+                Yashoda
+            </h1>
+
+            <h2>
+                Aspiring Cybersecurity & Cloud Security Professional
+            </h2>
+
+            <p>
+                I am a Computer Science student exploring
+                cybersecurity, cloud security, networking and
+                practical technology through hands-on projects.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View Projects
+                </a>
+
+                <a
+                    href="https://github.com/Yashoda-hub"
+                    target="_blank"
+                    class="btn btn-secondary"
+                >
+                    GitHub Profile
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <div class="section-title reveal">
+
+            <h2>
+                About Me
+            </h2>
+
+            <p>
+                Learning • Building • Exploring
+            </p>
+
+        </div>
+
+
+        <div class="about-container reveal">
+
+            <p>
+
+                I am a
+                <span class="highlight">
+                    Computer Science student
+                </span>
+                interested in cybersecurity and cloud security.
+
+                <br><br>
+
+                My focus is on understanding how systems,
+                networks and cloud environments work and
+                building practical projects while learning.
+
+                <br><br>
+
+                I believe in learning by
+                <span class="highlight">
+                    building and experimenting
+                </span>
+                rather than only studying theory.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+
+        <div class="section-title reveal">
+
+            <h2>
+                Skills & Learning
+            </h2>
+
+            <p>
+                Technologies and areas I am exploring
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <p>
+                    Security concepts, threats,
+                    vulnerabilities and practical security learning.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    ☁️
+                </div>
+
+                <h3>
+                    Cloud Security
+                </h3>
+
+                <p>
+                    Exploring cloud infrastructure,
+                    AWS fundamentals and security.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Networking
+                </h3>
+
+                <p>
+                    TCP/IP, networking concepts,
+                    ports and network fundamentals.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    🐧
+                </div>
+
+                <h3>
+                    Linux
+                </h3>
+
+                <p>
+                    Linux terminal, commands,
+                    files and basic system concepts.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    HTML, CSS and JavaScript
+                    for creating interactive projects.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    ☁️
+                </div>
+
+                <h3>
+                    AWS
+                </h3>
+
+                <p>
+                    Learning cloud services,
+                    infrastructure and security fundamentals.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+        <div class="section-title reveal">
+
+            <h2>
+                Featured Project
+            </h2>
+
+            <p>
+                Something I have built
+            </p>
+
+        </div>
+
+
+        <div class="projects-container">
+
+
+            <!-- CONCEPT2REALITY -->
+
+            <div class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>
+                    Concept2Reality.
+                </h3>
+
+                <p>
+
+                    An educational project focused on
+                    transforming ideas and concepts into
+                    a real-world learning environment.
+
+                    <br><br>
+
+                    This project represents my interest in
+                    combining technology, education and
+                    interactive learning.
+
+                </p>
+
+
+                <div class="project-buttons">
+
+                    <!-- LIVE PROJECT -->
+
+                    <a
+                        class="project-btn"
+                        href="https://reality-peach-ten.vercel.app/"
+                        target="_blank"
+                    >
+                        🚀 Live Project →
+                    </a>
+
+
+                    <!-- GITHUB CODE -->
+
+                    <a
+                        class="project-btn"
+                        href="https://github.com/Yashoda-hub/Concept2Reality./"
+                        target="_blank"
+                    >
+                        💻 View Code →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
+    <section id="education">
+
+        <div class="section-title reveal">
+
+            <h2>
+                Education
+            </h2>
+
+            <p>
+                My academic background
+            </p>
+
+        </div>
+
+
+        <div class="education-box reveal">
+
+            <h3>
+                BSc Computer Science
+            </h3>
+
+            <p>
+
+                Currently pursuing Computer Science
+                with an interest in cybersecurity,
+                cloud security and practical technology.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="section-title reveal">
+
+            <h2>
+                Let's Connect
+            </h2>
+
+            <p>
+                Explore my work and learning journey
+            </p>
+
+        </div>
+
+
+        <div class="contact-container reveal">
+
+            <p>
+
+                I am continuously learning and building
+                projects in technology and cybersecurity.
+
+                You can explore my projects and progress
+                through my GitHub profile.
+
+            </p>
+
+
+            <div class="social-links">
+
+                <a
+                    href="https://github.com/Yashoda-hub"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
+
+                <a
+                    href="https://yashoda-hub.github.io/"
+                    target="_blank"
+                >
+                    Portfolio
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        © 2026 Yashoda.
+        Built while learning and exploring technology.
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           CREATE PARTICLES
+        ========================== */
+
+        const particleContainer =
+            document.getElementById("particles");
+
+
+        for (let i = 0; i < 90; i++) {
+
+            const particle =
+                document.createElement("div");
+
+            particle.classList.add("particle");
+
+            particle.style.left =
+                Math.random() * 100 + "vw";
+
+            particle.style.animationDuration =
+                (8 + Math.random() * 15) + "s";
+
+            particle.style.animationDelay =
+                (Math.random() * 10) + "s";
+
+            const size =
+                (1 + Math.random() * 2.5);
+
+            particle.style.width =
+                size + "px";
+
+            particle.style.height =
+                size + "px";
+
+            particleContainer.appendChild(particle);
+
+        }
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        function revealOnScroll() {
+
+            revealElements.forEach(element => {
+
+                const windowHeight =
+                    window.innerHeight;
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop <
+                    windowHeight - 80) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            revealOnScroll
+        );
+
+
+        revealOnScroll();
+
+
+    </script>
+
+</body>
+
+          </html>
